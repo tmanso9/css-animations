@@ -1,0 +1,204 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background-color: #0058a5;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+
+.first {
+	box-sizing: border-box;
+	position: absolute;
+	left: 15%;
+}
+
+.second {
+	position: absolute;
+	left: 50%;
+}
+
+.third {
+	position: absolute;
+	left: 85%;
+}
+
+.ball {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	background-color: #c9f364;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+	z-index: 30;
+}
+
+.ball::before, .ball::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 5px solid white;
+	border-radius: 50%;
+	filter: blur(1px);
+}
+
+.ball::before {
+	right: -65%;
+}
+
+.ball::after {
+	left: -65%;
+}
+
+.shadow {
+	position: absolute;
+	width: 150px;
+	height: 50px;
+	transform: translate(-50%, 100%);
+	background-color: rgba(0, 0, 0, .2);
+	border-radius: 50%;
+	filter: blur(2px);
+	z-index: 20;
+}
+
+.ball.one {
+	width: 200px;
+	height: 200px;
+	animation: animate-ball-one 2s linear infinite;
+}
+
+.shadow.one {
+	width: 200px;
+	height: 70px;
+	animation: animate-shadow-one 2s ease-in-out infinite;
+}
+
+.ball.two {
+	width: 80px;
+	height: 80px;
+	animation: animate-ball-two 1s linear infinite;
+	animation-delay: 100ms;
+}
+
+.shadow.two {
+	width: 80px;
+	height: 30px;
+	animation: animate-shadow-two 1s ease-in-out infinite;
+	animation-delay: 100ms;
+}
+
+.ball.three {
+	animation: animate-ball-three 2.3s linear infinite;
+	animation-delay: 50ms;
+}
+
+.shadow.three {
+	animation: animate-shadow-three 2.3s ease-in-out infinite;
+	animation-delay: 50ms;
+}
+
+@keyframes animate-ball-one {
+	0% {
+		transform: translate(-50%, -50%) translateY(-300px) rotate(0);
+		transition-timing-function: cubic-bezier(0.075, 0.2, 0.355, 1);
+	}
+
+	50% {
+		transform: translate(-50%, -50%) translateY(0px) rotate(180deg);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) translateY(-300px) rotate(360deg);
+		transition-timing-function: cubic-bezier(0.075, 0.2, 0.355, 1);
+	}
+}
+
+@keyframes animate-shadow-one {
+	0% {
+		transform: translate(-50%, 100%) scale(.5);
+	}
+
+	50% {
+		transform: translate(-50%, 100%) scale(.8);
+	}
+
+	100% {
+		transform: translate(-50%, 100%) scale(.5);
+	}
+}
+
+@keyframes animate-ball-two {
+	0% {
+		transform: translate(-50%, -50%) translateY(-200px) rotate(0);
+		transition-timing-function: cubic-bezier(0.075, 0.2, 0.355, 1);
+	}
+
+	50% {
+		transform: translate(-50%, -50%) translateY(0px) rotate(180deg);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) translateY(-200px) rotate(360deg);
+		transition-timing-function: cubic-bezier(0.075, 0.2, 0.355, 1);
+	}
+}
+
+@keyframes animate-shadow-two {
+	0% {
+		transform: translate(-50%, 100%) scale(.6);
+	}
+
+	50% {
+		transform: translate(-50%, 100%) scale(.8);
+	}
+
+	100% {
+		transform: translate(-50%, 100%) scale(.6);
+	}
+}
+
+@keyframes animate-ball-three {
+	0% {
+		transform: translate(-50%, -50%) translateY(-350px) rotate(0);
+		transition-timing-function: cubic-bezier(0.075, 0.2, 0.355, 1);
+	}
+
+	50% {
+		transform: translate(-50%, -50%) translateY(0px) rotate(180deg);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) translateY(-350px) rotate(360deg);
+		transition-timing-function: cubic-bezier(0.075, 0.2, 0.355, 1);
+	}
+}
+
+@keyframes animate-shadow-three {
+	0% {
+		transform: translate(-50%, 100%) scale(.2);
+	}
+
+	50% {
+		transform: translate(-50%, 100%) scale(.8);
+	}
+
+	100% {
+		transform: translate(-50%, 100%) scale(.2);
+	}
+}
+
+.table {
+	position: absolute;
+	bottom: 0;
+	background: #fdfcf2;
+	width: 100%;
+	height: 390px;
+	z-index: 10;
+	border-top: 1px solid #aeaeae;
+}
